@@ -1,0 +1,29 @@
+h1{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+body{
+    background-color: #dbdada;
+}
+section{
+    background-color: white;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 2%;
+    background-color: white;
+}
+button{
+    background-color: rgb(19, 108, 241);
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    border-color: rgb(19, 108, 241);
+    color: white;
+}
+button:hover{
+    background-color: rgb(33, 122, 255);
+    transition: 0.5s;
+    border-color: rgb(33, 122, 255);
+}
