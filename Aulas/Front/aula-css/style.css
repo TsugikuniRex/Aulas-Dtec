@@ -6,39 +6,47 @@
 }
 
 body{
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #0e0e10;
+    color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
 }
+
 header{
     padding: 1.5rem 3rem;
     border-bottom: 1px solid #222;
 }
+
 nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
 }
-.menu{
+
+.menu {
     list-style: none;
     display: flex;
     gap: 2rem;
 }
-.menu, li, a{
+
+.menu, li, a {
     color: #bbb;
     text-decoration: none;
     font-size: 0.95rem;
 }
-.menu, li, a:hover{
+
+.menu, li, a:hover {
     color:#fff;
 }
-.hero{
+
+.hero {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -47,71 +55,86 @@ nav{
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .hero-content{
     max-width: 550px;
 }
-.hero-content, h1{ 
+
+.hero-content, h1 { 
     font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 1.2rem;
-    line-height: 1.2;/
+    line-height: 1.2;
 }
-.hero-content, p{
+
+.hero-content, p {
     font-size: 1.1rem;
     color: #ccc;
     margin-bottom: 2rem;
 }
-.buttons{
+
+.buttons {
     display: flex;
     gap: 1rem;
 }
-.btn{
+
+.btn {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s ease;
 }
-.primary{
+
+.primary {
     background-color: blue;
     color: #0e0e10;
 }
-.primary:hover{
+
+.primary:hover {
     background-color: rgb(31, 31, 250);
 }
-.secondary{
+
+.secondary {
     background-color: transparent;
     border: 1px solid #555;
     color: #ccc;
 }
-.secondary:hover{
+
+.secondary:hover {
     border-color: #888;
     color: #fff;
 }
-.hero-image img{
+
+.hero-image, img {
     max-width: 500px;
     width: 100%;
     border-radius: 10px;
     margin-top: 2rem;
 }
-.cards{
+
+.cards {
     display: grid;
-    grid-template-columns:  repeat(auto-fit,
-    minmax(280px, 1fr));
+    grid-template-columns:  repeat(auto-fit,minmax(280px, 1fr));
     gap: 2rem;
 }
-.card{
+
+.card {
     background: #111;
     padding: 2rem;
     border-radius: 1rem;
+    transition: 0.3 ease;
     border: 1px solid #1f1f1f;
+    box-shadow: 0 0 0 transparent;
 }
-.card:hover{
+
+.card:hover {
     background: #1a1a1a;
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(255,255,255,0.05);
 }
-.card img{
+
+.card  img {
     width: 100%;
     height: 160px;
     object-fit: cover;
@@ -119,3 +142,48 @@ nav{
     margin-bottom: 1rem;
     opacity: 0.8;
 }
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #eee;
+    font-weight: 500;
+}
+
+.clients {
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.clients-text, h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0.5rem;
+}
+.clients-text, p {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.clients-logos {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+}
+
+.clients-logos img {
+    height: 55px;
+    opacity: 0.8;
+    transition: opacity 0.3 ease;
+    filter: grayscale(100%);
+}
+
+.clients-logos img:hover{
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
