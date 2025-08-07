@@ -23,5 +23,7 @@ form.addEventListener('submit', function(evento) {
 
     console.log(pessoa);
 
-    resultado.innerHTML += `<p>Nome:${nome} ${sobrenome} - Peso:${peso}kg Altura:${altura}</p>`
+resultado.innerHTML += `<p>Nome:${nome} ${sobrenome} - Peso:${peso}kg Altura:${altura}</p>`
+
+form.reset()
 })
