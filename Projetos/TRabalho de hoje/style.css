@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fef9f6;
+  color: #3e2c1c;
+}
+
+header {
+  background-color: #5e3829;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  color: white;
+}
+
+.galeria{
+    background-color: #fef9f6;
+}
+.cartoes, img{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 200px;
+}
+http://127.0.0.1:5500/TRabalho%20de%20hoje/index.html
