@@ -18,7 +18,11 @@
       border: 1px solid #999;
       margin-top: 10px;
       padding: 10px;
-       
+      align-items: center;
+    }
+    .container-exerc1{
+      align-items: center;
+      
     }
     .item {
       background: #2196f3;
@@ -26,6 +30,7 @@
       padding: 10px;
       margin: 5px;
       
-     
     }
-    
+    .item-exerc2{
+      text-align: center;
+    }

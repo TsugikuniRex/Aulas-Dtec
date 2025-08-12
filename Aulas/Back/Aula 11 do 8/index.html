@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+    <style>
+        div.container{
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            column-gap: 16px;
+            row-gap: 8px;
+            /* grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 100px 1fr 100px;
+            gap: 10px;
+            height: 140vh; */
+        }
+        div.item{
+            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div.item:hover{
+            color: white;
+            transform: scale(0.9);
+            background-color: black;
+            border: 1px solid yellow;
+        }
+        .item1{
+            grid-column: 1/7;
+            grid-row:1;
+            background-color: whitesmoke;
+        }
+        .item2{
+            grid-column: 1/4;
+            grid-row: 2/7;
+        }
+        .item3{
+            grid-column: 1/7;
+            grid-row: 2/7 ;
+        }
+        .item4{
+            grid-column: 1/7;
+            grid-row: 7/8;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <ul>
+                <li class="item">Inicio</li>
+                <liclass class="item">Contatos</li>
+                <li class="item">Videos</li>
+            </ul>
+        </div>
+        <div class="item  item1">A</div>
+        <div class="item  item2">B</div>
+        <div class="item  item3">C</div>
+        <div class="item  item4">D</div>
+        <div class="item  item5">E</div>
+        <div class="item  item6">F</div>
+        <div class="item  item7">G</div>
+    </div>
+</body>
+</html>
