@@ -1,0 +1,11 @@
+body{
+    background-color: white;
+    color: black;
+}
+body.black{
+    background-image: url(calma\ ai.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: end;
+    color: white;
+}
