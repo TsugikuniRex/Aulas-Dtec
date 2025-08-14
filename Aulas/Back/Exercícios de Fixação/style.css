@@ -1,6 +1,9 @@
 body{
-    background-color: white;
-    color: black;
+    background-image: url(djabo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: end;
+    color: white;
 }
 body.black{
     background-image: url(calma\ ai.jpg);
