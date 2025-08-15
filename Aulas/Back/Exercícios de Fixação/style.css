@@ -1,5 +1,5 @@
 body{
-    background-image: url(djabo.jpg);
+    background-image: url(Isagi.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: end;
@@ -10,5 +10,5 @@ body.black{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: end;
-    color: white;
+    color: black;
 }

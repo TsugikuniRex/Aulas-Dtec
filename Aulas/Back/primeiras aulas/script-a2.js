@@ -1,0 +1,13 @@
+const nome = prompt("Digite seu nome:");
+const length = nome.length;
+    document.body.innerHTML += `<h1> Olá, ${nome}! Seja bem-vindo(a)!</h1>`;
+    document.body.innerHTML += `<h2> O seu nome tem ${length} letras.</h2>`;
+    document.body.innerHTML += `<h2> A primeira letra do seu nome é: ${nome[0]}.</h2>`;
+    document.body.innerHTML += `<h2> A segunda letra do seu nome é: <strong>${nome[1]}</strong>.</h2>`;
+    document.body.innerHTML += `<h2> A Última letra do seu nome é: <strong>${nome[length - 1]}</strong>.</h2>`;
+    document.body.innerHTML += `<h2> Indice de "a": ${nome.indexOf("a")}</h2>`;
+    document.body.innerHTML += `<h2> Ultimo indice de "a": ${nome.lastIndexOf("a")}</h2>`;
+    document.body.innerHTML += `<h2> As ultimas 3 letras do seu nome são: ${nome.slice(-3)}.</h2> `;
+    document.body.innerHTML += `<h2> Seu nome sem espaço:${nome.split(' ')}</h2>`;
+    document.body.innerHTML += `<h2> O seu nome em letra maiuscula é: ${nome.toUpperCase()}.</h2>`;
+    document.body.innerHTML += `<h2> O seu nome em letra minuscula é: ${nome.toLowerCase()}.</h2>`;

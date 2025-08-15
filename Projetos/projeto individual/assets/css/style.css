@@ -1,0 +1,59 @@
+div.imc-table{
+    border: 5px solid transparent;
+    background-color: white;
+    border-radius: 10px;
+    width: 40%;
+    height: 430px;
+}
+div.imc-header{
+    background-color: rgb(17, 86, 102);
+    gap: 20px;
+    text-align: center;
+    color: white;
+}
+.sla{
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: grid;
+    column-gap: 16px;
+    row-gap: 8px;
+
+}
+
+
+body{
+    background-color: rgb(17, 86, 102);
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.botao{
+    display: flex;
+    background-color: rgb(9, 48, 56);
+    color: white;
+    border: 5px solid rgb(9, 48, 56);
+    border-radius: 1px;
+    justify-content: center;
+    width: 100%;
+}
+.paragrafo-resultado{
+    display: grid;
+    background-color: rgb(18, 251, 177);
+    color: black;
+    height: 25px;
+    justify-content: center;
+}
+.bad{
+    display: grid;
+    background-color: rgb(250, 33, 33);
+    color: white;
+    height: 25px;
+    justify-content: center;
+}
+.peso, .altura{
+    display: grid;
+    width: 98%;
+}
+
+
