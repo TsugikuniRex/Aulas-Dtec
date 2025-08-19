@@ -1,0 +1,12 @@
+.container { 
+    display: grid;
+    grid-template-columns: auto auto auto;
+    flex-wrap: wrap; 
+    gap: 12px; 
+}
+.item{
+    border-style: dashed;
+    background-color: rgb(8, 185, 212);
+    flex: 0 1 200px
+
+}

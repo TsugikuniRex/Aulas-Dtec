@@ -1,27 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 div.imc-table{
     border: 5px solid transparent;
     background-color: white;
     border-radius: 10px;
     width: 40%;
-    height: 430px;
+    height: 470px;
 }
+.imc-row{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 2fr;
+}
+
 div.imc-header{
+    display: grid;
     background-color: rgb(17, 86, 102);
     gap: 20px;
     text-align: center;
+    grid-template-columns: 1fr 2.1fr;
     color: white;
+    border-radius: 4px;
+
 }
 .sla{
-    border: 1px solid grey;
+    border: 1px solid rgb(222, 222, 222);
     border-radius: 10px;
     display: grid;
     column-gap: 16px;
     row-gap: 8px;
-
 }
 
 
 body{
+    font-family: 'Open Sans';
     background-color: rgb(17, 86, 102);
 }
 .container{
@@ -35,7 +48,6 @@ body{
     border: 5px solid rgb(9, 48, 56);
     border-radius: 1px;
     justify-content: center;
-    width: 100%;
 }
 .paragrafo-resultado{
     display: grid;
@@ -50,10 +62,9 @@ body{
     color: white;
     height: 25px;
     justify-content: center;
+    text-align: center;
 }
 .peso, .altura{
     display: grid;
     width: 98%;
 }
-
-

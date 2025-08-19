@@ -1,0 +1,14 @@
+.item{
+    border: 2px solid black;
+    background-color: whitesmoke;
+    width: 16px;
+    height: 20px;
+    text-align: center;
+}
+.container{ 
+    display: flex; 
+    gap: 12px;
+}
+.i3 { order: 1; } 
+.i1 { order: 2; } 
+.i2 { order: 3; }

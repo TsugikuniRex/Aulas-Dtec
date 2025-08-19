@@ -1,0 +1,26 @@
+.item{
+    border: 2px solid black;
+    background-color: whitesmoke;
+    width: 10px;
+    height: 10px;
+}
+.content{ 
+    display: flex; 
+    gap: 12px;
+    flex: 0 0 200px;
+}
+.main{
+    display: flex;
+    gap: 12;
+
+    height: 90vh;
+}
+.left{
+    display: flex;
+
+    width: 200px;
+}
+.right{
+    display: flex;
+    width: 200px;
+}

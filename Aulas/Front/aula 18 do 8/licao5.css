@@ -1,0 +1,12 @@
+.container { 
+    display: flex; 
+}
+    
+.item{
+    border-style: dashed;
+    flex: 1 1 0;
+    background-color: grey;
+}
+.item2{
+    flex-grow: 2 2 0;
+}
