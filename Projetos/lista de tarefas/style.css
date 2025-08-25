@@ -1,39 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-.container{
-    width: 400px;
-    background-color: white;
-}
-.iten{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
+body {
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
 }
 
-body{
-    font-family: "Open Sans";
-    background-color: whitesmoke;
-    justify-content: center;
+.container {
+  background: #fff;
+  margin: 60px auto;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 8px #bbb;
+  width: 320px;
+  text-align: center;
 }
-.btn{
-    display: flex;
-    background-color: #1976D2;
-    color: white;
-    border: #1976D2;
-    border-radius: 5px;
-    height: 20px;
 
+input {
+  padding: 6px;
+  width: 180px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
-#lista{
-    display: flex;
+
+button {
+  padding: 7px 14px;
+  border-radius: 4px;
+  border: none;
+  background: #3a7afe;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
-.remove{
-    background-color: red;
-    color: white;
-    border: red;
-    border-radius: 5px;
+
+ul {
+  list-style: none;
+  padding: 0;
 }
-li{
-    background-color: whitesmoke;
+
+li {
+  padding: 8px;
+  margin: 5px 0;
+  background: #eee;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.feito .tarefa{
+  text-decoration: line-through;
+  color: #888;  
+}
+
+.remove {
+  background: #ff5959;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+

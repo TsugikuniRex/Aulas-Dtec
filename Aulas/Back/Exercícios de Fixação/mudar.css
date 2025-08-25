@@ -1,0 +1,68 @@
+/* Estilos para o corpo da página */
+body {
+    /* Fundo animado - pode ser um gradiente ou vídeo.
+       A regra mais específica (definida por último) é a que prevalece.
+       Vou usar o gradiente animado aqui para o exemplo. */
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: moverGradiente 15s ease infinite;
+
+    /* Estilos globais do texto */
+    color: white; /* Cor do texto padrão (para o tema claro) */
+    font-family: Arial, sans-serif;
+}
+
+/* Animação do gradiente */
+@keyframes moverGradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Regras para o vídeo de fundo, se você decidir usá-lo */
+#meuVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/* Estilos para o contêiner principal */
+.container {
+    background-color: #bbbbbb3c;
+    margin: 60px auto;
+    padding: 4%;
+    border-radius: 10px;
+    box-shadow: 1px 2px 8px #bbb;
+
+    /* Medidas proporcionais */
+    width: 80vw;
+    max-width: 800px;
+    height: auto;
+    
+    text-align: center;
+}
+
+/* Estilos para o elemento interno (coloridinho) */
+#coloridinho {
+    /* Tamanho proporcional ao contêiner, com um limite máximo */
+    width: 50%;
+    height: auto; /* A altura se ajusta para manter a proporção */
+    padding-top: 50%; /* Truque para criar um quadrado proporcional */
+    
+    background-color: #0015ff5f;
+    margin: 0 auto; /* Centraliza o elemento dentro do contêiner */
+}
+
+/* Se for um tema escuro, ajuste a cor do texto */
+body.black {
+    color: black;
+}
