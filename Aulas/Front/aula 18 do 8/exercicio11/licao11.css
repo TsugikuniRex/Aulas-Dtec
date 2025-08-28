@@ -1,13 +1,14 @@
-.item{
-    border: 2px solid black;
+.card{
+    border: 1px solid black;
     background-color: whitesmoke;
-    width: 16px;
+    width: 100vh;
     height: 20px;
-    text-align: center;
 }
 .container{ 
-    display: flex; 
+    display: grid; 
     gap: 12px;
+    grid-template-columns: 2fr 1fr;
+
 }
 .i3 { order: 1; } 
 .i1 { order: 2; } 

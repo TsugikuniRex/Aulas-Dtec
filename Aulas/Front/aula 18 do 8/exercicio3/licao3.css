@@ -3,10 +3,12 @@
     align-items: center; 
     gap: 12px; 
     height: 100vh;
+
 }
     
 .item{
     border-style: dashed;
+    background-color: darkcyan;
 }
 .item:nth-child(1){height:30;}
 .item:nth-child(2){height:60px;}

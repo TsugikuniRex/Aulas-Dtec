@@ -1,9 +1,0 @@
-.container { 
-    display: flex; 
-    gap: 12px; 
-}
-    
-.item{
-    border-style: dashed;
-    background-color: whitesmoke;
-}

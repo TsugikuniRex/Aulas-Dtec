@@ -1,0 +1,13 @@
+/* Quase lá: ajuste apenas se necessário */
+.container { 
+    display: flex; 
+    gap: 12px; 
+}
+.item{
+    background-color: whitesmoke;
+    border-style: dashed;
+    text-align: center;
+    align-content: center;
+    width: 10vw;
+    height: 8vh;
+}

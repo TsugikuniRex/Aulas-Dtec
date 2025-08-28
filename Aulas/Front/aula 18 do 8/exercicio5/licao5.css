@@ -5,8 +5,9 @@
 .item{
     border-style: dashed;
     flex: 1 1 0;
-    background-color: grey;
+    background-color: aquamarine;
 }
 .item2{
     flex-grow: 2 2 0;
+    
 }

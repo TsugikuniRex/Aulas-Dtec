@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90vw; /* Deixa o contêiner mais largo para acomodar 3 colunas */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+.card {
+    border: 2px solid black;
+    background-color: whitesmoke;
+    padding: 20px; /* Adiciona espaçamento interno para afastar o conteúdo da borda */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Adiciona a sombra */
+}
+
+h1 {
+    text-align: center; /* Centraliza o título */
+}
+
+body {
+    display: flex; /* Centraliza todo o conteúdo (título e contêiner) */
+    flex-direction: column;
+    align-items: center;
+}

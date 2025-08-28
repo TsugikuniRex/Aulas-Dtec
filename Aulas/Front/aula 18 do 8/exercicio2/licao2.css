@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    gap: 10px;
+}
+.item{
+    justify-content: space-between;
+    border-style: dashed;
+    align-content: center;
+    text-align: center;
+    width: 10vw;
+    height: 8vh;
+    background-color: whitesmoke;
+}

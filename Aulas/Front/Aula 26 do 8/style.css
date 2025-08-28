@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Permite quebrar linha */
+}
+
+.box {
+  flex: 1 1 200px; /* Cresce, encolhe, largura mínima */
+  background: lightcoral;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 600px) {
+  .box {
+    flex: 1 1 100%; /* Ocupa largura total */
+  }
+}
+.grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.item {
+  background: steelblue;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Ajuste extra para telas grandes */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr); /* força 4 colunas no desktop largo */
+  }
+}
