@@ -1,49 +1,30 @@
 /* Estilos para o corpo da página */
 body {
-    /* Fundo animado - pode ser um gradiente ou vídeo.
-       A regra mais específica (definida por último) é a que prevalece.
-       Vou usar o gradiente animado aqui para o exemplo. */
-    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-    background-size: 400% 400%;
-    animation: moverGradiente 15s ease infinite;
-
-    /* Estilos globais do texto */
-    color: white; /* Cor do texto padrão (para o tema claro) */
+    /* O fundo será o vídeo, então removemos o gradiente daqui */
+    color: white; /* Cor do texto padrão */
     font-family: Arial, sans-serif;
+    margin: 0; /* Remove a margem padrão do body */
+    padding: 0; /* Remove o padding padrão do body */
 }
 
-/* Animação do gradiente */
-@keyframes moverGradiente {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Regras para o vídeo de fundo, se você decidir usá-lo */
+/* Regras para o vídeo de fundo */
 #meuVideo {
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100%; /* Ajusta a largura para 100% da viewport */
+    height: 100%; /* Ajusta a altura para 100% da viewport */
+    object-fit: cover; /* ESSA É A PROPRIEDADE CHAVE: faz o vídeo cobrir toda a tela, mantendo a proporção */
     z-index: -1;
 }
 
 /* Estilos para o contêiner principal */
 .container {
     background-color: #bbbbbb3c;
-    margin: 60px auto;
-    padding: 4%;
     border-radius: 10px;
     box-shadow: 1px 2px 8px #bbb;
-
-    /* Medidas proporcionais */
+    margin: 60px auto;
+    padding: 4%;
     width: 80vw;
     max-width: 800px;
     height: auto;
@@ -51,17 +32,42 @@ body {
 }
 
 /* Estilos para o elemento interno (coloridinho) */
-#coloridinho {
-    /* Tamanho proporcional ao contêiner, com um limite máximo */
-    width: 50%;
-    height: auto; /* A altura se ajusta para manter a proporção */
-    padding-top: 50%; /* Truque para criar um quadrado proporcional */
-    
+.coloridinho {
     background-color: #0015ff5f;
-    margin: 0 auto; /* Centraliza o elemento dentro do contêiner */
+    border: 1px solid #0015ff5f;
+    box-shadow: 1px 2px 8px gray;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+    padding: 0 20px; /* Consertado: padding horizontal e vertical */
+    margin: 0 auto;
+    width: fit-content; /* Consertado: largura se ajusta ao conteúdo */
+    display: flex; /* Consertado: usa flexbox para centralizar o texto */
+    align-items: center; /* Consertado: alinha o texto verticalmente */
+    justify-content: center; /* Consertado: alinha o texto horizontalmente */
+    cursor: pointer; /* Adicionado: indica que o elemento é clicável */
+    text-align: center; /* Adicionado: fallback para navegadores mais antigos */
+    text-decoration: none; /* Adicionado: remove sublinhado se for um link */
+}
+.coloridinho :hover{
+    background-color: #1f31f45f;
+    border: 1px solid #1f31f45f;
+    scale: 0.9;
 }
 
 /* Se for um tema escuro, ajuste a cor do texto */
 body.black {
     color: black;
+}
+/* Tablet */
+@media (max-width: 900px) {
+    .item {
+        flex-basis: 48%;
+    }
+}
+/* Mobile */
+@media (max-width: 600px) {
+    .item {
+        flex-basis: 100%;
+    }
 }

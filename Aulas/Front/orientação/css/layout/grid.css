@@ -1,0 +1,24 @@
+.lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /* 5 colunas fixas: ruim em telas pequenas */
+    margin: 10px;
+    gap: 7px;
+    /* espaçamento “mágico” inconsistente */
+}
+
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 10px;
+    /* MUITO pequeno para leitura confortável */
+    background: #fff;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}

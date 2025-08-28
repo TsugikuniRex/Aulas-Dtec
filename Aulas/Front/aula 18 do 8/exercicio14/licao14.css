@@ -1,0 +1,13 @@
+.card{
+    border: 1px solid black;  
+    background-color: whitesmoke;
+    width: 90vh;
+    height: 20px;
+
+}
+.container{ 
+    display: grid; 
+    gap: 12px;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+}
