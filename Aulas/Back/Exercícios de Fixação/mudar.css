@@ -52,7 +52,6 @@ body {
 .coloridinho :hover{
     background-color: #1f31f45f;
     border: 1px solid #1f31f45f;
-    scale: 0.9;
 }
 
 /* Se for um tema escuro, ajuste a cor do texto */

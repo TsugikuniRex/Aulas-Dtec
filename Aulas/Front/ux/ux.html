@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Pizzaria do Dtec — Monte sua Pizza</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            --tomato: #c73a2e;
+            --tomato-dark: #9b2f26;
+            --basil: #2e7d32;
+            --ink: #2b2b2b;
+            --muted: #757575;
+            --dough: #fff8f0;
+            --card: #fff;
+            --border: #ead9c5;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1000px 480px at -10% -10%, #ffe7dd 0%, transparent 60%),
+                radial-gradient(1000px 480px at 110% -10%, #e9f3e9 0%, transparent 60%),
+                var(--dough);
+            line-height: 1.5;
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 16px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(90deg, var(--tomato), var(--tomato-dark));
+            color: #fff;
+            border-bottom: 4px solid #812419;
+        }
+
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background:
+                conic-gradient(from 0deg, #d32f2f 0 25%, #f6cf82 0 50%, #2e7d32 0 75%, #8d6e63 0 100%);
+            box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .3)
+        }
+
+        h1 {
+            font-size: 1.15rem;
+            margin: 0
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 16px;
+            opacity: .9
+        }
+
+        nav a:hover {
+            opacity: 1;
+            text-decoration: underline
+        }
+
+        .promo {
+            background: #fff3cd;
+            color: #5a3e00;
+            border-bottom: 1px solid #efdfaa
+        }
+
+        .promo .row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0
+        }
+
+        .promo button {
+            border: 1px dashed #b08900;
+            background: transparent;
+            color: #5a3e00;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer
+        }
+
+        main {
+            padding: 22px 0
+        }
+
+        .section {
+            margin: 16px 0
+        }
+
+        .title {
+            font-size: 1.35rem;
+            margin: 0 0 8px;
+            color: #1f1f1f
+        }
+
+        .sub {
+            color: var(--muted);
+            margin: 0 0 14px
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .03);
+            display: flex;
+            flex-direction: column
+        }
+
+        .thumb {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block
+        }
+
+        .thumb-wrap {
+            position: relative
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #0009;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: .75rem
+        }
+
+        .unappetizing {
+            filter: grayscale(.9) saturate(.7) sepia(.35) hue-rotate(20deg) contrast(.85) blur(.25px)
+        }
+
+        .card h3 {
+            margin: 10px 12px 0;
+            font-size: 1.05rem
+        }
+
+        .card p {
+            margin: 6px 12px 0;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        .meta {
+            margin: 8px 12px 0;
+            font-size: .84rem;
+            color: #6b8c6b
+        }
+
+        .price {
+            margin: 10px 12px 12px;
+            font-weight: 700;
+            color: var(--basil)
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            margin-top: auto
+        }
+
+        .btn {
+            border: 0;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #efefef;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .btn.primary {
+            background: var(--basil);
+            color: #fff
+        }
+
+        .btn.primary:disabled {
+            opacity: .55;
+            cursor: not-allowed
+        }
+
+        .panel {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .03)
+        }
+
+        form.builder {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+        }
+
+        fieldset {
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            background: #fffdfa
+        }
+
+        legend {
+            padding: 0 6px;
+            font-weight: 700;
+            color: #4a3527
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 6px 0
+        }
+
+        .hint {
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .cta {
+            background: linear-gradient(180deg, var(--tomato), var(--tomato-dark));
+            color: #fff;
+            border: 0;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(199, 58, 46, .25)
+        }
+        .cta2{
+            background-color: green;
+        }
+
+        .cta:disabled {
+            opacity: .6;
+            cursor: not-allowed
+        }
+
+        .ghost {
+            background: transparent;
+            border: 2px dashed #caa087;
+            color: #8a5d4a;
+            padding: 10px 14px;
+            border-radius: 12px
+        }
+
+        .sys {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #fff8f3;
+            color: #7b4a3b;
+            font-size: .95rem
+        }
+
+        .sys.error {
+            border-color: #f3c2c7;
+            background: #fff1f3;
+            color: #a23a49
+        }
+
+        footer {
+            padding: 28px 16px;
+            color: #9a8571;
+            text-align: center
+        }
+
+        @media (max-width:480px) {
+            nav a {
+                margin-left: 10px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap bar">
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <h1>Pizzaria do Dtec</h1>
+            </div>
+            <nav aria-label="principal">
+                <a href="#chef">Opções do Chef</a>
+                <a href="#montagem">Monte a sua</a>
+                <a href="#resumo">Resumo</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="promo">
+        <div class="wrap row">
+            <small>Oferta relâmpago: use o cupom <b>DTEC25</b> — expira em <b>01:59</b>.</small>
+            <button onclick="this.closest('.promo').remove()">Fechar</button>
+        </div>
+    </div>
+
+    <main class="wrap">
+      
+        <section id="chef" class="section">
+            <h2 class="title">Opções do Chef</h2>
+            <p class="sub">Veja nossas receitas</p>
+
+            <div class="grid">
+                <!-- 1 -->
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <span class="badge">Uma delícia</span>
+                        <img class="thumb"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOLSdnBveZeGC0yLAvM--xQTBzW9qij38BHA&s"
+                            alt="Pizza Margherita com aparência desbotada">
+                    </div>
+                    <h3>Margherita Tradizione</h3>
+                    <p>Molho de tomate pelati, mozzarella de búfala, manjericão fresco e fio de azeite extravirgem.</p>
+                    <p class="meta">Vegetariana • Alérgenos: lactose, glúten</p>
+                    <div class="price">R$ 42,00</div>
+                    <div class="actions">
+                        <button class="btn">Ver ingredientes</button>
+                        <button class="btn primary" disabled>Adicionar</button>
+                    </div>
+                </article>
+                <!-- 2 -->
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <span class="badge">sombras duras</span>
+                        <img class="thumb"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0RRNO6sLSB0T-5TIVTw49vrAmRtauaAJmOw&s"
+                            alt="Pizza de calabresa sombria, com sombras duras">
+                    </div>
+                    <h3>Calabresa Artesanal</h3>
+                    <p>Calabresa curada em finas rodelas, cebola roxa ao ponto, muçarela e toque de orégano.</p>
+                    <p class="meta">Alérgenos: lactose, glúten • Contém carne suína</p>
+                    <div class="price">R$ 44,00</div>
+                    <div class="actions">
+                        <button class="btn">Ver ingredientes</button>
+                        <button class="btn primary" disabled>Adicionar</button>
+                    </div>
+                </article>
+                <!-- 3 -->
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <span class="badge">ângulo ruim</span>
+                        <img class="thumb"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjMv7q42PNNQ3dxXNzE-h_xhrTd1KiqM9Dg&s"
+                            alt="Pizza portuguesa com ângulo pouco convidativo">
+                    </div>
+                    <h3>Portuguesa da Casa</h3>
+                    <p>Presunto cozido, ovos em lascas, cebola, azeitonas, ervilha, muçarela e pimentões.</p>
+                    <p class="meta">Alérgenos: lactose, glúten, ovo</p>
+                    <div class="price">R$ 46,00</div>
+                    <div class="actions">
+                        <button class="btn">Ver ingredientes</button>
+                        <button class="btn primary" disabled>Adicionar</button>
+                    </div>
+                </article>
+                <!-- 4 -->
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <span class="badge">desfocada</span>
+                        <img class="thumb"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjMv7q42PNNQ3dxXNzE-h_xhrTd1KiqM9Dg&s"
+                            alt="Pizza vegetariana desfocada e sem nitidez">
+                    </div>
+                    <h3>Vegetariana Mediterrânea</h3>
+                    <p>Abobrinha grelhada, tomate confitado, azeitonas pretas, queijo feta e orégano.</p>
+                    <p class="meta">Vegetariana • Alérgenos: lactose, glúten</p>
+                    <div class="price">R$ 48,00</div>
+                    <div class="actions">
+                        <button class="btn">Ver ingredientes</button>
+                        <button class="btn primary" disabled>Adicionar</button>
+                    </div>
+                </article>
+                <!-- 5 -->
+                <article class="card">
+                    <div class="thumb-wrap">
+                        <span class="badge">fria/oleosa</span>
+                        <img class="thumb"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFjMv7q42PNNQ3dxXNzE-h_xhrTd1KiqM9Dg&s"
+                            alt="Pizza quatro queijos acinzentada, aparência fria e oleosa">
+                    </div>
+                    <h3>Quatro Queijos Defumados</h3>
+                    <p>Mussarela, provolone defumado, parmesão e gorgonzola, finalizada com pimenta-do-reino.</p>
+                    <p class="meta">Vegetariana • Alérgenos: lactose, glúten</p>
+                    <div class="price">R$ 49,00</div>
+                    <div class="actions">
+                        <button class="btn">Ver ingredientes</button>
+                        <button class="btn primary" disabled>Adicionar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===================== MONTAGEM ===================== -->
+        <section id="montagem" class="section panel">
+            <h2 class="title">Monte sua Pizza</h2>
+            <p class="sub">Use a persona da turma como guia: o que ela precisa ver e decidir primeiro?</p>
+
+            <form class="builder" oninput="checkReady()">
+                <fieldset>
+                    <legend>Tamanho (diâmetro)</legend>
+                    <label><input type="radio" name="size" value="25"> P – 25 cm (6 fatias) — <b>R$ 34</b></label>
+                    <label><input type="radio" name="size" value="30"> M – 30 cm (8 fatias) — <b>R$ 42</b></label>
+                    <label><input type="radio" name="size" value="35"> G – 35 cm (10 fatias) — <b>R$ 52</b></label>
+                    <div class="hint">* preços base; sabores e borda podem alterar o valor</div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Molho e massa</legend>
+                    <label><input type="radio" name="sauce" value="tradicional" checked> Molho tradicional (tomate
+                        pelati)</label>
+                    <label><input type="radio" name="sauce" value="branco"> Molho branco (bechamel)</label>
+                    <label><input type="checkbox" name="dough" value="fina"> Massa fina</label>
+                    <label><input type="checkbox" name="dough" value="integral"> Massa integral (+ R$ 3)</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sabores (até 2)</legend>
+                    <label><input type="checkbox" name="flavor" value="mussarela"> Mussarela</label>
+                    <label><input type="checkbox" name="flavor" value="calabresa"> Calabresa</label>
+                    <label><input type="checkbox" name="flavor" value="portuguesa"> Portuguesa</label>
+                    <label><input type="checkbox" name="flavor" value="frango"> Frango com catupiry</label>
+                    <label><input type="checkbox" name="flavor" value="veg"> Vegetariana mediterrânea</label>
+                    <div class="hint">* o limite “até 2” não bloqueia sozinho (discutir prevenção de erros)</div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Complementos</legend>
+                    <label><input type="checkbox" name="extra" value="borda"> Borda recheada (+ R$ 6)</label>
+                    <label><input type="checkbox" name="extra" value="alho"> Alho crocante (+ R$ 2)</label>
+                    <label><input type="checkbox" name="extra" value="azeitona"> Azeitonas extras (+ R$ 2)</label>
+                    <label><input type="checkbox" name="extra" value="manjericao"> Manjericão extra (grátis)</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Bebidas</legend>
+                    <label><input type="radio" name="drink" value="nenhuma" checked> Sem bebida</label>
+                    <label><input type="radio" name="drink" value="refri"> Refrigerante lata (+ R$ 6)</label>
+                    <label><input type="radio" name="drink" value="suco"> Suco natural 300 ml (+ R$ 8)</label>
+                    <label><input type="radio" name="drink" value="agua"> Água sem gás (+ R$ 4)</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Entrega</legend>
+                    <label><span>Nome</span><input type="text" id="nm" placeholder="Digite"></label>
+                    <label><span>Contato</span><input type="text" id="ct" placeholder="Telefone ou WhatsApp"></label>
+                    <label><span>Endereço</span><input type="text" id="end" placeholder="Rua, nº, bairro"></label>
+                    <div class="hint">* campos obrigatórios não estão claramente marcados (provocação de UX)</div>
+                </fieldset>
+            </form>
+
+            <div class="cta-row">
+                <button id="buy" class="cta" disabled>Finalizar pedido</button>
+                <button class="ghost" type="button"
+                    onclick="document.querySelector('.sys').classList.toggle('error')">Alternar mensagem</button>
+            </div>
+            <div class="sys">Status: ficará pronto quando parecer pronto.</div>
+        </section>
+
+       
+        <section id="resumo" class="section panel">
+            <h2 class="title">Resumo do Pedido</h2>
+            <p class="sub"></p>
+            <div id="summary"></div>
+            <div id="confirm-row" style="display:none; margin-top:16px;">
+                <button id="confirm" class="cta cta2">Confirmar Pedido</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <small>© Pizzaria Persona — Conteúdo real nas opções do chef; imagens “ruins” para análise de UX.</small>
+    </footer>
+
+    <script>
+        // Regras mínimas para habilitar o CTA (mantidas simples para fins didáticos)
+        function checkReady() {
+            const size = document.querySelector('input[name="size"]:checked');
+            const flavors = document.querySelectorAll('input[name="flavor"]:checked').length;
+            const name = document.getElementById('nm').value.trim();
+            // Corrigido: agora exige endereço e contato também
+            const address = document.getElementById('end').value.trim();
+            const contact = document.getElementById('ct').value.trim();
+            const ok = !!size && flavors >= 1 && name.length >= 2 && address.length >= 5 && contact.length >= 8;
+            document.getElementById('buy').disabled = !ok;
+        }
+
+        // Limitar sabores a no máximo 2
+        document.querySelectorAll('input[name="flavor"]').forEach(cb => {
+            cb.addEventListener('change', function () {
+                const checked = document.querySelectorAll('input[name="flavor"]:checked');
+                if (checked.length > 2) {
+                    this.checked = false;
+                    alert('Selecione no máximo 2 sabores.');
+                }
+                checkReady();
+            });
+        });
+
+        // Marcar campos obrigatórios visualmente
+        document.querySelectorAll('#montagem [id="nm"], #montagem [id="ct"], #montagem [id="end"]').forEach(input => {
+            input.setAttribute('required', 'required');
+            input.style.border = '1.5px solid #c73a2e';
+        });
+
+        // Exemplo simples de "resumo" quando finalizar (não impede erros de UX)
+        document.getElementById('buy').addEventListener('click', (e) => {
+            const size = document.querySelector('input[name="size"]:checked')?.parentElement.innerText || '—';
+            const sauce = document.querySelector('input[name="sauce"]:checked')?.parentElement.innerText || '—';
+            const flavors = [...document.querySelectorAll('input[name="flavor"]:checked')].map(el => el.parentElement.innerText.trim());
+            const extras = [...document.querySelectorAll('input[name="extra"]:checked')].map(el => el.parentElement.innerText.trim());
+            const drink = document.querySelector('input[name="drink"]:checked')?.parentElement.innerText || '—';
+            const name = document.getElementById('nm').value.trim();
+            const address = document.getElementById('end').value.trim();
+            const contact = document.getElementById('ct').value.trim();
+
+            const html = `
+        <ul>
+          <li><b>Cliente:</b> ${name || '—'}</li>
+          <li><b>Contato:</b> ${contact || '—'}</li>
+          <li><b>Tamanho:</b> ${size}</li>
+          <li><b>Molho/Massa:</b> ${sauce}</li>
+          <li><b>Sabores:</b> ${flavors.join(', ') || '—'}</li>
+          <li><b>Complementos:</b> ${extras.join(', ') || '—'}</li>
+          <li><b>Bebida:</b> ${drink}</li>
+          <li><b>Endereço:</b> ${address || '—'}</li>
+        </ul>`;
+            document.getElementById('summary').innerHTML = html;
+            document.getElementById('confirm-row').style.display = 'block';
+            document.getElementById('resumo').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Botão de confirmar pedido
+        document.getElementById('confirm').addEventListener('click', function () {
+            alert('Pedido confirmado! Aguarde a entrega.');
+            document.getElementById('confirm-row').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
+<!-- 
+    -melhorar o botão
+    -EU colocaria a imagem das pizzas com a cor normal e não o cinza 
+    -eu mudaria os status colocaria algo mais detalhado
+    -eu melhoraria o grid das pizzas
+    -->

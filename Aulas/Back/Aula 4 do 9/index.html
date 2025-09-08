@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Paises</title>
+    <style>
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            animation: mudarCores 5s infinite alternate;
+        }
+
+        .coloridinho{
+            font-size: 3rem;
+            text-align: center;
+            animation: mudarCores 5s infinite alternate;
+        }
+        @keyframes mudarCores {
+            0% {color: red;}
+            25% {color: blue;}
+            50% {color: green;}
+            75% {color: orange;}
+            100% {color: purple;}
+        }
+        .erro{
+            font-size: 3rem;
+            text-align: center;
+            animation: mudarCor 5s infinite alternate;
+        }
+        @Keyframes mudarCor{
+            0%{color: red}
+            25%{color: rgb(255, 0, 119);}
+            50%{color: black;}
+
+        }
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 60%;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: rgb(255, 9, 75);
+            border: 1px solid rgb(255, 9, 75);
+            border-radius: 5px;
+        }
+
+        button:active {
+            background-color: rgb(217, 9, 65);
+            border: 1px solid rgb(217, 9, 65);
+            transform: scale(0.9);
+        }
+
+        #container {
+            background-color: whitesmoke;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .flutuando2 {
+            animation: subirDescer 2s ease-in-out infinite;
+            width: 100px;
+            padding: 8px;
+        }
+
+        @keyframes subirDescer {
+            0% {transform: translateY(0);}
+
+            50% {transform: translateY(-20px);}
+
+            100% {transform: translateY(0);}
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Consulta de Paises</h1>
+    <p>Digite o nome de um país para Buscar</p>
+    <input type="text" id="paisinput" placeholder="Ex: Brasil, Japan"><button id="buscarbtn">buscar</button>
+    <img src="sae__1_-removebg-preview.png" class="flutuando2" alt="">
+    <div id="container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
