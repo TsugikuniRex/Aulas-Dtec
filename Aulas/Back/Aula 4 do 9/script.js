@@ -16,7 +16,7 @@ buscarBtn.addEventListener('click', () => {
         return;
     }
 
-    const url = `https://restcountries.com/v3.1/translation/${nomepais}`
+
 
     container.innerHTML = `<p class="coloridinho">Buscando...</p>`;
     fetch(url)
@@ -27,9 +27,10 @@ buscarBtn.addEventListener('click', () => {
             return response.json();
         })
         .then(data => {
-            const pais = data[0]    
-            const moeda = Object.values(pais.currencies)[0].name;
-            
+            const pais = data[0]
+
+            const url = `https://restcountries.com/v3.1/translation/${nomepais}`
+
             container.innerHTML = 
                 `<h2>Nome: ${pais.translations.por.common}</h2>
                 <p>Continente: <strong>${pais.continents}</strong></p>
