@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latitude e Longitude</title>
+    <style>
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            animation: mudarCores 5s infinite alternate;
+        }
+
+        body {
+            background-color: rgb(221, 221, 221); /*Franscis & Benio - alteramos a cor de fundo*/
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 100px; /*wesley evelly*/ /*Franscis & Benio - alteramos o espaçamento*/
+            text-align: center;
+            animation: fundocor 5s infinite alternate;
+        }
+
+        .erro {
+            font-size: 3rem;
+            text-align: center;
+            animation: error 5s infinite alternate;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid gray; /*Franscis & Benio - alteramos a bordar*/
+            border-radius: 3px;
+        }
+        
+        /* diego e joao */
+        button {
+            padding: 8px 15px;
+            background-color: rgb(0, 102, 255);
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        button:active {
+            background-color: rgb(7, 72, 169);
+            border: 1px solid rgb(7, 72, 169);
+            transform: scale(0.9);
+        }
+
+        .buscar {
+            font-size: 3rem;
+            text-align: center;
+            animation: mudarCores 5s infinite alternate;
+        }
+
+        .noite {
+            background-color: blue;
+        }
+
+        @keyframes mudarCores {
+            0% {
+                color: red;
+            }
+
+            25% {
+                color: blue;
+            }
+        }
+
+        #container {
+            background-color: rgb(122, 199, 255);
+            border: 1px solid cadetblue;
+            padding: 70px; /*wesley, evelly*/ /*Franscis & Benio - Alteramos o tamanho do container*/
+            border-radius: 15px; 
+            animation: tocantins 5s infinite alternate;
+        }
+        @keyframes mudarCores{
+            0%{color: black;}
+            25%{color: white;}
+        }
+    </style>
+</head>
+
+<body>
+    <body>
+        <section class="fundo">
+            <input type="text" id="latlong" placeholder="Digite uma cidade em português"><button id="buscarbtn">buscar</button>
+            <img src="" class="flutuando2" alt="">
+            <div id="container"></div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+
+</html>
