@@ -32,7 +32,8 @@ buscarBtn.addEventListener('click', () => {
             const lat = pais.lat;
             const lon = pais.lon;
 
-            const url2 = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+            // Adiciona timezone=auto para pegar hora local
+            const url2 = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`;
 
             fetch(url2)
                 .then(response => {
@@ -41,13 +42,24 @@ buscarBtn.addEventListener('click', () => {
                 })
                 .then(tempData => {
                     const temp = tempData.current_weather.temperature;
+                    const horarioISO = tempData.current_weather.time;
+
+                    // Pega só a hora (HH)
+                    const hora = new Date(horarioISO).getHours();
+                    let periodo;
+                    if (hora >= 6 && hora < 18) {
+                        periodo = "Dia ☀️";
+                    } else {
+                        periodo = "Noite 🌙";
+                    }
 
                     container.innerHTML = `
                         <h2>Nome: ${pais.display_name}</h2>
                         <h2>Latitude: ${lat}</h2>
                         <h2>Longitude: ${lon}</h2>
                         <h2>Temperatura: ${temp}°C</h2>
-                        `;
+                        <h2>Período: ${periodo}</h2>
+                    `;
                     latlong.value = "";
                 });
         })
