@@ -1,4 +1,4 @@
-const latlong = document.getElementById("latlong");
+const paisinput = document.getElementById("paisinput");
 const buscarBtn = document.getElementById("buscarbtn");
 const container = document.getElementById("container");
 
@@ -10,7 +10,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 buscarBtn.addEventListener('click', () => {
-    const nomepais = latlong.value.trim();
+    const nomepais = paisinput.value.trim();
     if (nomepais === "") {
         alert("Por favor, digite o nome de um país");
         return;
@@ -60,12 +60,12 @@ buscarBtn.addEventListener('click', () => {
                         <h2>Temperatura: ${temp}°C</h2>
                         <h2>Período: ${periodo}</h2>
                     `;
-                    latlong.value = "";
+                    paisinput.value = "";
                 });
         })
         .catch(error => {
             console.error(error);
             container.innerHTML = `<p class="erro">Erro: ${error.message}</p>`;
-            latlong.value = "";
+            paisinput.value = "";
     });
 });
