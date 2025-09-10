@@ -3,7 +3,7 @@ const buscarBtn = document.getElementById("buscarbtn");
 const container = document.getElementById("container");
 
 document.addEventListener('keydown', (event) => {
-    if(event.key === "Enter") {
+    if (event.key === "Enter") {
         event.preventDefault();
         buscarBtn.click();
     }
@@ -22,12 +22,12 @@ buscarBtn.addEventListener('click', () => {
 
     fetch(url)
         .then(response => {
-            if(!response.ok) throw new Error("País não encontrado");
+            if (!response.ok) throw new Error("País não encontrado");
             return response.json();
         })
         .then(data => {
-            if(data.length === 0) throw new Error("País não encontrado");
-            
+            if (data.length === 0) throw new Error("País não encontrado");
+
             const pais = data[0];
             const lat = pais.lat;
             const lon = pais.lon;
@@ -37,7 +37,7 @@ buscarBtn.addEventListener('click', () => {
 
             fetch(url2)
                 .then(response => {
-                    if(!response.ok) throw new Error("Temperatura não encontrada");
+                    if (!response.ok) throw new Error("Temperatura não encontrada");
                     return response.json();
                 })
                 .then(tempData => {
@@ -49,15 +49,19 @@ buscarBtn.addEventListener('click', () => {
                     let periodo;
                     if (hora >= 6 && hora < 18) {
                         periodo = "Dia ☀️";
+                        container.classList.remove("noite");
+                        container.classList.add("dia");
                     } else {
                         periodo = "Noite 🌙";
+                        container.classList.remove("dia");
+                        container.classList.add("noite");
                     }
 
                     container.innerHTML = `
                         <h2>Nome: ${pais.display_name}</h2>
                         <h2>Latitude: ${lat}</h2>
                         <h2>Longitude: ${lon}</h2>
-                        <h2>Temperatura: ${temp}°C</h2>
+                        <h1>${temp}°C</h1>
                         <h2>Período: ${periodo}</h2>
                     `;
                     paisinput.value = "";
@@ -67,5 +71,5 @@ buscarBtn.addEventListener('click', () => {
             console.error(error);
             container.innerHTML = `<p class="erro">Erro: ${error.message}</p>`;
             paisinput.value = "";
-    });
+        });
 });
