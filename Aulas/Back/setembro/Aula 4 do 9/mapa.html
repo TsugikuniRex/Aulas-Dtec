@@ -53,32 +53,32 @@
         }
 
         @keyframes mudarCores {
-            0% {
-                color: red;
-            }
-
-            25% {
-                color: blue;
-            }
-
-            50% {
-                color: green;
-            }
-
-            75% {
-                color: orange;
-            }
- 
-            100% {
-                color: purple;
-            }
+            0% {color: white;}
+            50% {color: whitesmoke;}
+            100% {color: black}
         }
 
         #container {
-            background-color: cadetblue;
-            border: 1px solid cadetblue;
+            background-color: whitesmoke;
+            /* cor inicial */
+            border: 1px solid whitesmoke;
             padding: 20px;
             border-radius: 8px;
+            color: white;
+            transition: background-color 1s ease-in-out;
+            /* 🔥 transição suave */
+        }
+
+        /* Quando for dia */
+        .dia {
+            background-color: rgb(112, 205, 236) !important;
+            color: black;
+        }
+
+        /* Quando for noite */
+        .noite {
+            background-color: darkblue !important;
+            color: white;
         }
     </style>
 </head>
