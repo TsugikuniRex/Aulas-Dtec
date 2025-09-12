@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Bootstrap</title>
+    <!-- Importando Bootstrap via CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        .col {
+            background-color: rgb(155, 58, 245);
+            border: black 1px solid;
+            padding: 10px;
+        }
+
+        .col-4 {
+            background-color: red;
+            border: black 1px solid;
+            padding: 10px;
+        }
+
+        .media {
+            background: linear-gradient(rgba(0, 0, 255, 0.500), rgba(137, 43, 226, 0.500), rgba(255, 0, 0, 0.500));
+        }
+    </style>
+</head>
+
+<body>
+    <img src="cacatua.jpg" class="rounded float-left" alt="..." width="200px">
+    <img src="cacatua.jpg" class="rounded float-right" alt="..." width="200px">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+        </div>
+        <div class="row align-items-end">
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+            <div class="col">
+                Uma de três colunas
+            </div>
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+            <div class="col-4">
+                Uma de duas colunas
+            </div>
+        </div>
+    </div><br>
+    <div class="media">
+        <img class="align-self-start mr-3" src="papagaio.jpg" width="64px" alt="Imagem de exemplo genérica">
+
+        <div class="media-body">
+            <h5 class="mt-0">Cabeçalho da mídia</h5>
+            Os gatos são animais fascinantes com habilidades incríveis: eles dormem cerca de dois terços do dia, não
+            sentem o sabor doce e podem dar saltos de até cinco vezes a sua altura. Seus bigodes, vitais para a
+            orientação e movimento, não devem ser cortados, e o ronronar, além de expressar contentamento, pode ser um
+            mecanismo de cura e comunicação.
+            1. Gigantes do Sono: Os gatos passam, em média, dois terços do dia a dormir, o que significa que, em uma
+            vida de 9 anos, estão acordados apenas 3 anos.
+            2. Paladar Adocicado? Não: Ao contrário de nós, os gatos não possuem as papilas gustativas para saborear o
+            doce.
+            3. O Poder do Salto: Com suas patas poderosas, um gato pode saltar alturas impressionantes, chegando a ter
+            cinco vezes a sua própria altura.
+            4. Mística dos Bigodes: Os bigodes, ou vibrissas, são órgãos sensoriais cruciais para a orientação espacial
+            e o movimento dos gatos, e não devem nunca ser cortados.
+            5. O Mistério do Ronronar: O ronronar é um som que os gatos fazem para expressar afeto e contentamento, mas
+            também pode ser um sinal de que estão aliviando o stress e a dor.
+            6. Marcadores de Território: Quando um gato se esfrega em você, ele está a libertar odores das glândulas
+            faciais para marcar seu território.
+            7. Olhar de Confiança: Um piscar de olhos lento e suave para o seu gato é um sinal de afeto e confiança,
+            equivalente a um abraço para eles.
+            8. Cérebro Humano: O cérebro de um gato é biologicamente mais semelhante ao de um cão do que ao de um cão.
+            9. O Salto de um Gato é um Reflexo: Os gatos conseguem sobreviver a quedas de até 20 metros devido a um
+            reflexo chamado de "reflexo de endireitamento", que lhes permite girar o corpo em pleno ar.
+            10. Mente Social: Apesar da fama de independentes, os gatos são seres sociais que podem reconhecer os seus
+            nomes e responder a eles.
+        </div>
+    </div><br>
+    <div class="text-center">
+        <img src="rin.jpg" class="rounded" alt="..." width="300px">
+    </div><br>
+    <div class="btn-group" role="group" aria-label="Grupo de botões com dropdown aninhado">
+        <button type="button" class="btn btn-secondary">1</button>
+        <button type="button" class="btn btn-secondary">2</button>
+
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="#">Link dropdown</a>
+                <a class="dropdown-item" href="#">Link dropdown</a>
+            </div>
+        </div>
+    </div><br>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Primeiro</th>
+                <th scope="col">Último</th>
+                <th scope="col">Nickname</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Rin</td>
+                <td></td>
+                <td>@OLinguarudoIncrivel</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Shidou</td>
+                <td></td>
+                <td>@BarataDragãodoCaralho</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Karasu</td>
+                <td>@CorvodasBolas</td>
+            </tr>
+        </tbody>
+    </table><br>
+    <table class="table table-sm table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Primeiro</th>
+                <th scope="col">Último</th>
+                <th scope="col">Nickname</th>
+            </tr>
+        </thead><br>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr class="table-secondary">
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr class="table-success">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="table-danger">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="table-warning">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="table-info">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="table-light">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="table-dark">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table><br>
+    <div class="alert alert-primary" role="alert">
+        Um simples alerta primary com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        Um simples alerta secondary com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-success" role="alert">
+        Um simples alerta success com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-danger" role="alert">
+        Um simples alerta danger com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-warning" role="alert">
+        Um simples alerta warning com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-info" role="alert">
+        Um simples alerta info com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-light" role="alert">
+        Um simples alerta light com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div>
+    <div class="alert alert-dark" role="alert">
+        Um simples alerta dark com <a href="#" class="alert-link">um link de exemplo</a>. Clique nele, se quiser.
+    </div><br>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button><br>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="Michael Kaiser.jpg" alt="Imagem de capa do card" width="100px" height="180px">
+        <div class="card-body">
+            <h5 class="card-title">Card Lendario</h5>
+            <p class="card-text">Michael Kaiser, um prodígio alemão sub-20, destaca-se por um chute rápido e preciso.
+                Como craque e principal atacante do Bastard München na Liga Neo Egoísta, suas habilidades incluem um QI
+                futebolístico superior, velocidade de chute líder mundial e um chute potente.</p>
+            <a href="#" class="btn btn-primary">Visitar</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="don lorenzo.jpg" alt="Imagem de capa do card" width="100" height="180">
+        <div class="card-body">
+            <h5 class="card-title">Card Lendario</h5>
+            <p class="card-text">Na série Blue Lock, Don Lorenzo é uma figura alta e esguia, com olhos roxos e cabelos
+                pretos bagunçados com pontas roxas. Seus dentes dourados</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Link do card</a>
+            <a href="#" class="card-link">Outro link</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
