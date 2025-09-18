@@ -8,18 +8,29 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Farmeworks</title>
     <style>
-        .carousel-inner {
-            height: 426px;
-            width: 640;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         .navbar-nav {
             display: flex;
             justify-content: flex-end;
             width: 100%;
+        }
+
+        .nav-inc {
+            background-color: whitesmoke;
+        }
+
+        .desconto {
+            background-color: rgb(7, 136, 74);
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid rgb(7, 136, 74);
+        }
+        .btnAdicionar{
+            border-radius: 3px;
+            border:  1px solid rgb(7, 136, 74);
+            background-color:  rgb(7, 136, 74);
+            color: #fff;
+            width: 100%;
+            align-items: center;
         }
     </style>
 </head>
@@ -46,33 +57,24 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="building-7648743_640.jpg" alt="Primeiro Slide">
+                <img class="d-block w-100" src="mattelbanner2.jpg" width="800" height="400" alt="Primeiro Slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Construções Modernas</h5>
-                    <p>Arquitetura inovadora no coração da cidade.</p>
+                    <h5>Frete Grátis</h5>
+                    <p>Acima de R$ 50 em todo o Brasil</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="hot-air-balloon-9070079_640.jpg" alt="Segundo Slide">
+                <img class="d-block w-100" src="mosabanner.avif" width="800" height="400" alt="Segundo Slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Aventura no Ar</h5>
-                    <p>Experimente um passeio inesquecível de balão.</p>
+                    <h5>Frete Grátis</h5>
+                    <p>Acima de R$ 50 em todo o Brasil</p>
                 </div>
             </div>
-
-<div class="carousel-item">
-  <img src="..." alt="...">
-  <div class="carousel-caption d-none d-md-block">
-    <h5>. teste..</h5>
-    <p>...</p>
-  </div>
-</div>
-
             <div class="carousel-item">
-                <img class="d-block w-100" src="mountain-9767919_640.jpg" alt="Terceiro Slide">
+                <img class="d-block w-100" src="mattelbanner.jpg" width="800" height="400" alt="Terceiro Slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Natureza Imponente</h5>
-                    <p>Descubra paisagens de tirar o fôlego.</p>
+                    <h5>Frete Grátis</h5>
+                    <p>Acima de R$ 50 em todo o Brasil</p>
                 </div>
             </div>
         </div>
@@ -84,20 +86,45 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Próximo</span>
         </a>
-        <section>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Ativo
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
-                </label>
-            </div>
-        </section>
     </div>
+    <div class="nav-inc">
+        <h4>Ofertas da semana <span class="badge badge-success">-20%</span></h4>
+        <p>Frete Grátis a partir de R$ 50</p>
+    </div>
+    <section class="cards">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="indomi.jpg" alt="Imagem de capa do card" width="252" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Título do card</h5>
+                    <p class="card-text">R$</p>
+                    <h5>R$ </h5>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="spino3.webp" alt="Imagem de capa do card" width="252" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Título do card</h5>
+                    <p class="preço">R$799,99</p>
+                    <h5 class="preço">R$ R$584,99</h5>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="Rex.jpg" alt="Imagem de capa do card" width="252" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Título do card</h5>
+                    <p class="card-text">R$</p>
+                    <h5>R$ </h5>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
