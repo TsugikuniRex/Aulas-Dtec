@@ -24,23 +24,13 @@
             text-align: center;
             border: 1px solid rgb(7, 136, 74);
         }
-
-        .btnAdicionar {
+        .btnAdicionar{
+            border-radius: 3px;
+            border:  1px solid rgb(7, 136, 74);
+            background-color:  rgb(7, 136, 74);
+            color: #fff;
             width: 100%;
             align-items: center;
-            gap: 10px;
-        }
-
-        .favoritar,
-        .detalhes {
-            flex-grow: 2;
-            gap: 5px;
-            font-family: Arial, sans-serif;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -106,75 +96,35 @@
             <div class="card">
                 <img class="card-img-top" src="indomi.jpg" alt="Imagem de capa do card" width="252" height="200">
                 <div class="card-body">
-                    <h4>Boneco Dinossauro Indominus Rex Ataque de Camuflagem<span class="badge badge-success">Novo</span></h4>
-                    <p class="card-text">855,51</p>
+                    <h5 class="card-title">Título do card</h5>
+                    <p class="card-text">R$</p>
                     <h5>R$ </h5>
-                    <button type="button" class="btn btn-success  btnAdicionar">Adicionar ao Carrinho</button><br>
-                    <div>
-                        <button type="button" class="btn btn-outline-primary  ">Favoritar</button>
-                        <button type="button" class="btn btn-outline-primary  ">Detalhes</button>
-                    </div>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
                 </div>
             </div>
             <div class="card">
                 <img class="card-img-top" src="spino3.webp" alt="Imagem de capa do card" width="252" height="200">
                 <div class="card-body">
-                    <h4>Jurassic World Camp Cretáceo Spinosaurus<span class="badge badge-success">Novo</span></h4>
+                    <h5 class="card-title">Título do card</h5>
                     <p class="preço">R$799,99</p>
                     <h5 class="preço">R$ R$584,99</h5>
-                    <button type="button" class="btn btn-success btnAdicionar">Adicionar ao Carrinho</button><br>
-                    <div>
-                        <button type="button" class="btn btn-outline-primary  ">Favoritar</button>
-                        <button type="button" class="btn btn-outline-primary  ">Detalhes</button>
-                    </div>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="Trex.webp" alt="Imagem de capa do card" width="252" height="200">
+                <img class="card-img-top" src="Rex.jpg" alt="Imagem de capa do card" width="252" height="200">
                 <div class="card-body">
-                    <h4>Jurassic world trex mordida Feroz<span class="badge badge-success">Novo</span></h4>
-                    <p class="card-text">R$799,99</p>
+                    <h5 class="card-title">Título do card</h5>
+                    <p class="card-text">R$</p>
                     <h5>R$ </h5>
-                    <button type="button" class="btn btn-success  btnAdicionar">Adicionar ao Carrinho</button><br>
-                    <div>
-                        <button type="button" class="btn btn-outline-primary  ">Favoritar</button>
-                        <button type="button" class="btn btn-outline-primary  ">Detalhes</button>
-                    </div>
+                    <button class="btnAdicionar">Adicionar Ao Carrinho</button><br>
+                    <button class="favoritar">Favoritar</button><button class="detalhes">Detalhes</button>
                 </div>
             </div>
         </div>
     </section>
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Primeiro</th>
-                <th scope="col">Último</th>
-                <th scope="col">Nickname</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr class="table-secondary">
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
