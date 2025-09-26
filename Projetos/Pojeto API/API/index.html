@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Usuário</h1>
+        <p>Clique em "Listar Usuário" para carregar os dados</p>
+        <div class="header-buttons">
+            <button id="btnListUsers">Listar Usuários</button>
+        </div>
+        <div id="user-cards-container" class="cards-grid">
+
+        </div>
+        <h2>Adicionar Novo Usuário</h2>
+        <form action="" id="addUserForm" class="add-User-Form">
+            <input type="text" id="addName" placeholder="Nome do Usuário" required>
+            <input type="number" id="addButton" placeholder="30" required>
+            <button type="submit">Adicionar Usuário</button>
+        </form>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Usuário</h2>
+            <form id="editUserForm">
+                <input type="hidden" id="editId">
+                <label for="editName">Nome:</label>
+                <input type="text" id="editName" required>
+                <label for="editAge">Idade:</label>
+                <input type="number" id="editAge" required>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-save">Salvar</button>
+                    <button type="button" class="btn-cancel" id="btnCancelEdit">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
