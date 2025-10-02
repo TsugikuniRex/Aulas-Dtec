@@ -1,0 +1,10 @@
+Username = Tsugi_admin.db
+
+Password = dududaorinha
+
+mongodb+srv://Tsugi-admin-db:dududaorinha@cluster0.pchzbci.mongodb.net/?
+retryWrites=true&w=majority&appName=Cluster0
+
+npm install mongodb
+npm install mongoose
+npm install dotenv

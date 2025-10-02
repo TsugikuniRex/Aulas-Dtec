@@ -5,48 +5,70 @@
 // npm init -y
 // npm install express
 
-//Importando o express
-const express = require('express')
+//CARREGAR VARIÁVEIS DE AMBIENTE
+require('dotenv').config()
 
-//Importação cors
-const cors = require('cors')
+//Importando o express
+const express =  require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const PORT = process.env.PORT || 3007;
+const mongoURI = process.env.MONGO_URI;
+
+//CONEXÂO
+mongoose.connect(mongoURI)
+    .then(()=> console.log("Conectado ao MongoDb Atlas"))
+    .catch(error => {
+        console.error("Falha na Coxeção ao MongoDb",error.message);
+        process.exit(1);
+    })
+
+//estrutura do documento
+
+const usuarioSchema = new mongoose.Schema(
+    {
+        nome: {type: String, required:true},
+        idade: {type: Number, required:true}
+    }, {timestamps: true}
+);
+
+const Usuario = mongoose.model('Usuario', usuarioSchema)
 
 //Criando minha aplicação
 const app = express()
 
 //Permitir trabalhar com json
 app.use(express.json())
+
 //permitir trabalhar com cors
 app.use(cors())
 
-//Porta onde a API vai rodar
-const PORT = 3002;
-
-let usuarios = [
-    { id: 1, nome: "Ana", idade: 25 },
-    { id: 2, nome: "Carlos", idade: 30 },
-    { id: 3, nome: "Maria", idade: 22 },
-    { id: 4, nome: "José Carlos", idade: 35 },
-    { id: 5, nome: "Josefa", idade: 25 }
-]
-
-app.get('/', (req, res) => {
+app.get('/', (req,res) => {
     res.send("PÁGINA INICIAL")
 })
 
 
-app.get('/usuarios', (req, res) => {
-    res.json(usuarios);
+app.get('/usuarios',async (req,res) => {
+    try {
+        const usuarios = await Usuario.find({});
+        res.json(usuarios)
+    }catch(error){
+        res.status(500).json({mensage:"Error ao buscar usuários",erro: error.mansage})
+    }
 })
 
-app.get('/usuarios/:id', (req, res) => {
-    const id = req.params.id
-    const usuario = usuarios.find(u => u.id == id)
-
-    if (usuario) {
-        res.json(usuario)
-    } else {
-        res.status(404).json({ mensagem: "Usuário Não Encontrado" })
+app.get('/usuarios/:id',async (req, res) => {
+    try {
+        const id = req.params.id;
+        const usuario = await Usuario.findById(id);
+        
+        if(usuario){
+            res.json(usuario)
+        }else{
+            res.status(404).json({mansage: 'Usuário Não encontrado'})
+        }
+    }catch(error){
+        res.status(400).json({mensagem: "Erro de Servidor", erro: error.mensage})
     }
 })
 
