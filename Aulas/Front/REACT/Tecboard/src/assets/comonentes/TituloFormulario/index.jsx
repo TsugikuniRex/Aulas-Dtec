@@ -1,4 +1,4 @@
-import '../TituloFormulario/TituloFormulario.class'
+import '../TituloFormulario/TituloFormulario.css'
 
 export function TituloFormulario({ children }) {
     return (
