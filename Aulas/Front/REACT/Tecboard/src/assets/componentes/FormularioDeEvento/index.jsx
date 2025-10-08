@@ -1,4 +1,4 @@
-import '../FormularioDeEvento/FormularioDeEvento.css'
+import './FormularioDeEvento.css'
 import { Botao } from '../Botão';
 import { CampoDeEntrada } from "../CampoDeEntrada";
 import { CampoDeFormularios } from "../CampoDeFormulario";
@@ -26,7 +26,7 @@ export function FormularioDeEventos() {
                 </CampoDeFormularios>
 
                 <CampoDeFormularios>
-                    <Label htmlFor="tipoEvento"></Label>
+                    <Label htmlFor="tipoEvento">Em que região é o evento</Label>
                     <ListaSuspensa />
                 </CampoDeFormularios>
             </div>
