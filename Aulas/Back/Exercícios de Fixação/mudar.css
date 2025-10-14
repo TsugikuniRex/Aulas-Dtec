@@ -50,8 +50,8 @@ body {
     text-decoration: none; /* Adicionado: remove sublinhado se for um link */
 }
 .coloridinho :hover{
-    background-color: #1f31f45f;
-    border: 1px solid #1f31f45f;
+    background-color: #0014ee81;
+    border: 1px solid #0014ee81;
 }
 
 /* Se for um tema escuro, ajuste a cor do texto */

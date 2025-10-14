@@ -1,4 +1,4 @@
-Username = Tsugi_admin.db
+Username = Tsugi-admin-db
 
 Password = dududaorinha
 
@@ -8,3 +8,10 @@ retryWrites=true&w=majority&appName=Cluster0
 npm install mongodb
 npm install mongoose
 npm install dotenv
+
+async e await
+
+
+instalação do jwt
+npm install jsonwebtoken
+npm install bcryptjs

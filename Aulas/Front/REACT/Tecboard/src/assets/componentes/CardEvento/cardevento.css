@@ -1,0 +1,19 @@
+.card-evento{
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    color: white;
+}
+
+.card-evento p, .card-evento h4{
+    margin: 0;
+}
+
+.card-evento .corpo{
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}

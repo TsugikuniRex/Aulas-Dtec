@@ -1,15 +1,16 @@
 
 import './App.css'
+import { Banner } from "./assets/componentes/Banner";
+import { CardEvento } from "./assets/componentes/CardEvento";
 import { FormularioDeEventos } from './assets/componentes/FormularioDeEvento'
 import { Tema } from "./assets/componentes/Tema";
-
 
 function App() {
 
   const temas = [
     {
       id: 1,
-      nome: 'font-end'
+      nome: 'font-end' 
     },
     {
       id: 2,
@@ -32,21 +33,32 @@ function App() {
       nome: 'cloud'
     }
   ]
-
+  const eventos = [
+    {
+      capa: 'https:',
+      tema: temas[0],
+      data: new Date(),
+      titulo: 'Mulheres no Front'
+    }
+  ]
   return (
     <main>
-      <header className=''>
-        <img src="/logo.png" alt="Tecboard" />
-      </header>
-      <section>
-        <img src="/banner.png" alt="Banner principal" />
-      </section>
+
+      <Banner />
       <FormularioDeEventos />
 
-      <section>
-        <Tema tema={temas[0]} />
-      </section>
-      <section>
+      {temas.map(function (item){
+        return(
+          <section key={item.id} >
+            <Tema tema={item} />
+            <CardEvento evento = {eventos[0]}/>
+          </section>
+          )
+      }
+      )}
+
+
+      {/* <section>
         <Tema tema={temas[1]} />
       </section>
       <section>
@@ -60,7 +72,7 @@ function App() {
       </section >
       <section>
         <Tema tema={temas[5]} />
-      </section >
+      </section > */}
     </main >
   )
 }

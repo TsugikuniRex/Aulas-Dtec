@@ -1,9 +1,18 @@
 require('dotenv').config();
+
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+
+const User = require('./models/User')
+const Pessoa = require('./models/Pessoa')
+
 const PORT = process.env.PORT || 3007;
 const mongoURI = process.env.MONGO_URI;
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 // CONEXÃO
 mongoose.connect(mongoURI)
@@ -13,18 +22,62 @@ mongoose.connect(mongoURI)
         process.exit(1);
     });
 
-// Schema e modelo
-const usuarioSchema = new mongoose.Schema({
-    nome: { type: String, required: true },
-    idade: { type: Number, required: true }
-}, { timestamps: true });
+// função geradora do token de login
+const generateToken = (id) => {
+    return jwt.sign({ id }, JWT_SECRET, { expiresIn: '1d' })
+}
 
-const Usuario = mongoose.model('Usuario', usuarioSchema);
+const protect = (req, res, next) => {
+    let token;
+
+    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+        try {
+            token = req.headers.authorization.split(' ')[1]
+            jwt.verify(token, JWT_SECRET);
+            next()
+        } catch (error) {
+            return res.status(401).json({ mensagem: "Não autorizado, token Inválido" })
+        }
+    }
+}
 
 // APP
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// rota do admin
+app.post('/API/register-admin', async (req,res) => {
+    const {email, password} = req.body
+    try{
+        const userExists = await User.findOne({email})
+        if(userExists){
+            return res.status(400).json({mensagem: "Nome de usuário Já existe"})
+        }
+        const user = await User.create({email, password})
+        res.status(201).json({mensagem: "Usuário criado com sucesso"})
+    }catch (error) {
+        res.status(500).json({mensagem: "Erro ao registro admin", erro: error.mensagem})
+    }
+})
+
+app.post('API/login-admin', async(req, res)=>{
+    const {email, password} = req.body
+    try {
+        const user = await User.findOne({email}).select('+password');
+        if(user && (await user.matchPassword(password))){
+            res.json({
+                email: user.email,
+                tokken: generateToken(user._id),
+                mensagem: "Login Realizado com sucesso"
+            })
+        }else {
+            res.status(401).json({mensagme: "Credencias inválidas"})
+        }
+    }catch(error) {
+        res.status(500).json({mensagem: "Erro no login", erro: error.mensagem})
+    }
+})
 
 // Rotas
 app.get('/', (req, res) => res.send("PÁGINA INICIAL"));

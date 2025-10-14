@@ -174,3 +174,15 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
 }
+.btnAdcionar {
+    background-color: #28a745;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    height: 22px;
+}
+.btnAdcionar:active{
+        background-color: #2bca50;
+        scale: 0.9;
+        color: whitesmoke;
+}

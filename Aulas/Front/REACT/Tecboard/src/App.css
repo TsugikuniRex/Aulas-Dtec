@@ -9,18 +9,6 @@ header {
   justify-content: center;
 }
 
-section {
-  background: linear-gradient(180deg, #17E489 0%,
-      #091d24 100%);
-  display: flex;
-  justify-content: center;
-}
-
-section img {
-  max-width: 90%;
-  object-fit: cover;
-}
-
 .form-evento{
   background-color: #212121;
   padding: 32px 28px;
