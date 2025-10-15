@@ -1,11 +1,18 @@
 import './ListaSuspensa.css'
 
-export function ListaSuspensa() {
+export function ListaSuspensa({itens}) {
     return (
-        <select className="lista-suspensa-form" >
-            <option value=""></option>
-            <option value=""></option>
-            <option value="">Rio de Janeiro</option>
+        <select defaultValue="" className="lista-suspensa-form" >
+            <option disabled value="">Selecione uma Opção</option>
+            
+            {itens.map(function (item) {
+                return (
+                    <option key={item.id} value={item.id}>
+                        {item.nome}
+                    </option>
+                )
+            }
+            )}
         </select>
     )
 }

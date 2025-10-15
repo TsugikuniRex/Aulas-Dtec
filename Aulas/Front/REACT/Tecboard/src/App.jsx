@@ -41,11 +41,18 @@ function App() {
       titulo: 'Mulheres no Front'
     }
   ]
+
+  function adicionarEvento(evento) {
+    eventos.push(evento)
+    console.log('eventos =>', eventos)
+  }
   return (
     <main>
-
+      <header>
+        <img src="/logo.png" alt="Tecboard" />
+      </header>
       <Banner />
-      <FormularioDeEventos />
+      <FormularioDeEventos temas={temas} aoSubmeter={aoSubmeter="adicionarEvento"}/>
 
       {temas.map(function (item){
         return(
