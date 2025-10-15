@@ -28,7 +28,7 @@ export function FormularioDeEventos() {
 
                 <CampoDeFormularios>
                     <Label htmlFor="tipoEvento">Em que região é o evento</Label>
-                    <ListaSuspensa />
+                    <ListaSuspensa id="tema" name="tema" itens={temas}/>
                 </CampoDeFormularios>
             </div>
             <div className='acoes'>
