@@ -1,16 +1,16 @@
-
 import './App.css'
 import { Banner } from "./assets/componentes/Banner";
 import { CardEvento } from "./assets/componentes/CardEvento";
-import { FormularioDeEventos } from './assets/componentes/FormularioDeEvento'
+import { FormularioDeEventos } from './assets/componentes/FormularioDeEvento';
 import { Tema } from "./assets/componentes/Tema";
+import { useState } from 'react';
 
 function App() {
 
   const temas = [
     {
       id: 1,
-      nome: 'font-end' 
+      nome: 'front-end'
     },
     {
       id: 2,
@@ -33,18 +33,19 @@ function App() {
       nome: 'cloud'
     }
   ]
-  const eventos = [
+  const [eventos, setEventos] = useState( [
     {
       capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png',
       tema: temas[0],
       data: new Date(),
       titulo: 'Mulheres no Front'
     }
-  ]
+  ])
 
   function adicionarEvento(evento) {
-    eventos.push(evento)
-    console.log('eventos =>', eventos)
+    setEventos([...eventos, evento])
+    // eventos.push(evento)
+    // console.log('eventos =>', eventos)
   }
   return (
     <main>
@@ -52,17 +53,21 @@ function App() {
         <img src="/logo.png" alt="Tecboard" />
       </header>
       <Banner />
-      <FormularioDeEventos temas={temas} aoSubmeter={aoSubmeter="adicionarEvento"}/>
+      <FormularioDeEventos temas={temas} aoSubmeter={adicionarEvento} />
 
-      {temas.map(function (item){
-        return(
+      {temas.map(function (item) {
+        return (
           <section key={item.id} >
             <Tema tema={item} />
-            <CardEvento evento = {eventos[0]}/>
+            
+            {eventos.map(function (item, index) {
+              return(
+            <CardEvento evento={item} key={index} />
+            )
+          })}
           </section>
-          )
-      }
-      )}
+        )
+      })}
 
 
       {/* <section>
