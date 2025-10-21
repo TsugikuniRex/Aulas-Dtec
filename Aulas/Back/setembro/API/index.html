@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Usuários</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Gerenciamento de Pessoas</h1>
@@ -15,12 +17,12 @@
             <button id="btnListUsers" class="btn-action">Listar Pessoas</button>
             <button id="btnLoginModal" class="btn-action">Login</button>
             <button id="btnRegisterModal" class="btn-action">Criar Usuário</button>
-            
+
             <p id="adminAuthStatus" class="auth-status"></p>
         </div>
 
         <div id="user-cards-container" class="cards-grid"></div>
-        
+
         <h2>Cadastrar Pessoa</h2>
         <form id="addUserForm" class="add-user-form">
             <input type="text" id="addName" placeholder="Nome da Pessoa" required>
@@ -39,7 +41,7 @@
                 <input type="number" id="editAge" required>
                 <div class="modal-buttons">
                     <button type="submit" class="btn-save">Salvar</button>
-                    <button type="button"class="btn-cancel" id="btnCancelEdit">Cancelar</button>
+                    <button type="button" class="btn-cancel" id="btnCancelEdit">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -80,4 +82,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

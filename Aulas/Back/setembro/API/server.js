@@ -47,7 +47,7 @@ app.use(express.json());
 app.use(cors());
 
 // rota do admin
-app.post('/API/register-admin', async (req,res) => {
+app.post('/api/register-admin', async (req,res) => {
     const {email, password} = req.body
     try{
         const userExists = await User.findOne({email})
@@ -61,7 +61,7 @@ app.post('/API/register-admin', async (req,res) => {
     }
 })
 
-app.post('API/login-admin', async(req, res)=>{
+app.post('/api/login-admin', async(req, res)=>{
     const {email, password} = req.body
     try {
         const user = await User.findOne({email}).select('+password');
@@ -75,25 +75,25 @@ app.post('API/login-admin', async(req, res)=>{
             res.status(401).json({mensagme: "Credencias inválidas"})
         }
     }catch(error) {
-        res.status(500).json({mensagem: "Erro no login", erro: error.mensagem})
+        res.status(400).json({mensagem: "Erro no login", erro: error.mensagem})
     }
 })
 
 // Rotas
 app.get('/', (req, res) => res.send("PÁGINA INICIAL"));
 
-app.get('/usuarios', async (req, res) => {
+app.get('/pessoas', async (req, res) => {
     try {
-        const usuarios = await Usuario.find({});
+        const usuarios = await Pessoa.find({});
         res.json(usuarios);
     } catch (error) {
         res.status(500).json({ mensagem: "Erro ao buscar usuários", erro: error.message });
     }
 });
 
-app.get('/usuarios/:id', async (req, res) => {
+app.get('/Pessoas/:id', async (req, res) => {
     try {
-        const usuario = await Usuario.findById(req.params.id);
+        const usuario = await Pessoa.findById(req.params.id);
         if (usuario) res.json(usuario);
         else res.status(404).json({ mensagem: 'Usuário não encontrado' });
     } catch (error) {
@@ -101,9 +101,9 @@ app.get('/usuarios/:id', async (req, res) => {
     }
 });
 
-app.get('/usuarios/nome/:nome', async (req, res) => {
+app.get('/pessoas/nome/:nome', async (req, res) => {
     try {
-        const resultados = await Usuario.find({ nome: { $regex: req.params.nome, $options: 'i' } });
+        const resultados = await Pessoa.find({ nome: { $regex: req.params.nome, $options: 'i' } });
         if (resultados.length > 0) res.json(resultados);
         else res.status(404).json({ mensagem: "Usuário não encontrado" });
     } catch (error) {
@@ -111,9 +111,9 @@ app.get('/usuarios/nome/:nome', async (req, res) => {
     }
 });
 
-app.get('/usuarios/idade/:idade', async (req, res) => {
+app.get('/pessoas/idade/:idade', async (req, res) => {
     try {
-        const resultados = await Usuario.find({ idade: req.params.idade });
+        const resultados = await Pessoa.find({ idade: req.params.idade });
         if (resultados.length > 0) res.json(resultados);
         else res.status(404).json({ mensagem: "Usuário não encontrado" });
     } catch (error) {
@@ -121,10 +121,10 @@ app.get('/usuarios/idade/:idade', async (req, res) => {
     }
 });
 
-app.delete('/usuarios/:id', async (req, res) => {
+app.delete('/pessoas/:id',protect, async (req, res) => {
     try {
-        const usuarioDeletado = await Usuario.findByIdAndDelete(req.params.id);
-        if (!usuarioDeletado) {
+        const pessoaDeletado = await Pessoa.findByIdAndDelete(req.params.id);
+        if (!pessoaDeletado) {
             return res.status(404).json({ mensagem: "Usuário não encontrado" });
         }
         res.json({ mensagem: "Usuário deletado", usuario: usuarioDeletado });
@@ -133,19 +133,19 @@ app.delete('/usuarios/:id', async (req, res) => {
     }
 });
 
-app.post('/usuarios', async (req, res) => {
+app.post('/pessoas', async (req, res) => {
     try {
-        const novoUsuario = await Usuario.create(req.body);
+        const novoUsuario = await Pessoa.create(req.body);
         res.status(201).json(novoUsuario);
     } catch (error) {
         res.status(400).json({ mensagem: "Erro ao salvar usuário", erro: error.message });
     }
 });
 
-app.put('/usuarios/:id', async (req, res) => {
+app.put('/pessoas/:id', async (req, res) => {
     try {
         const { nome, idade } = req.body;
-        const usuarioAtualizado = await Usuario.findByIdAndUpdate(
+        const usuarioAtualizado = await Pessoa.findByIdAndUpdate(
             req.params.id,
             { nome, idade },
             { new: true, runValidators: true }

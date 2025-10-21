@@ -1,5 +1,8 @@
+const { response } = require("express");
+const { bulkSave } = require("./models/User");
+
 //Criando uma constante com o endereço da API 
-const API_URL = "http://localhost:3007/usuarios";
+const API_URL = "http://localhost:3007/pessoas";
 
 //Seleção de Elementos do HTML INICIAL
 const userCardsContainer = document.getElementById('user-cards-container');
@@ -11,8 +14,26 @@ const editModal = document.getElementById('editModal');
 const editUserForm = document.getElementById('editUserForm');
 const btnCancelEdit = document.getElementById('btnCancelEdit');
 const editIdInput = document.getElementById('editId');
-const editNameInput = document.getElementById('editName')
-const editAgeInput = document.getElementById('editAge')
+const editNameInput = document.getElementById('editName');
+const editAgeInput = document.getElementById('editAge');
+
+//elementos do modal de login
+const loginModal = document.getElementById('loginModal');
+const btnLoginModal = document.getElementById('btnLoginModal');
+const btnCancelLogin = document.getElementById('btnCancelLogin');
+const adminLoginForm = document.getElementById('adminLoginForm');
+const adminAuthStatus = document.getElementById('adminAuthStatus');
+
+// elementos deo modal de registro
+const registerModal = document.getElementById('registerModal')
+const btnRegisterModal = document.getElementById('btnRegisterModal')
+const btnCancelRegister = document.getElementById('btnCancelRegister')
+const adminRegisterForm = document.getElementById('adminRegisterForm')
+const adminRegisterStatus = document.getElementById('adminRegisterStatus')
+const  = document.getElementById('')
+
+// variavel global para o tokken
+let authToken = '';
 
 
 //CRIAÇÃO DE FUNÇÕES
@@ -61,16 +82,89 @@ function editUser(userId, userData) {
         })
         .catch(error => console.error("Erro ao editar o usuário", error));
 }
+function hendleAdminRegister(email, password) {
+    adminRegisterStatus.textContent = "Registrando..."
+    adminRegisterStatus.style.color = "blue"
 
-function deleteUser(userId) {
-    fetch(`${API_URL}/${userId}`, {
-        method: 'DELETE'
+    fetch("http://localhost:3007/api/register-admin", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JsonWebTokenError.stringify({ email, password })
     })
         .then(response => response.json())
-        .then(() => {
-            fetchAndRenderUsers()
+        .then(data => {
+            if (data.mensagem && data.mensagem.inclues('sucesso')) {
+                adminRegisterStatus.style.color = "green";
+                adminRegisterStatus.textContent = "Conta criada com sucesso";
+                setTimeout(() => {
+                    registerModal.style.display = "none"
+                    document.getElementById('regUsername').value = "";
+                    document.getElementById('regPassword').value = "";
+                }, 2000);
+            } else {
+                adminRegisterStatus.style.color = "red";
+                adminRegisterStatus.textContent = data.mensagem;
+            }
         })
-        .catch(error => console.error('Erro ao excluir usuário', error))
+        .catch(() => {
+            adminRegisterStatus.style.color = "red";
+            adminRegisterStatus.textContent = "Erro de rede ou Servidor";
+        });
+}
+
+//função para login
+function hendleAdminLogin(email, password) {
+    fetch('http://localhost:3007/api/login-admin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                authToken = data.token;
+                adminAuthStatus.style.color = 'green';
+                adminAuthStatus.textContent = 'Login realizado com sucesso! token obtido';
+                loginModal.style.display = 'none';
+            }else {
+                authToken = '';
+                adminAuthStatus.style.color = 'red';
+                adminAuthStatus.textContent = data.mensagem
+            }
+        })
+        .catch(() => {
+                adminAuthStatus.style.color = 'red';
+                adminAuthStatus.textContent = 'Erro de rede ou servidor';
+        })
+}
+
+//rota para verificar o tokken da rota
+ 
+
+function deleteUser(userId) {
+    if(!authToken){
+        adminAuthStatus.style.color = 'orange';
+        adminAuthStatus.textContent = 'ERRO: Faça login para deletar';
+        return
+    }
+    fetch(`${API_URL}/${userId}`,{
+        method: 'DELETE',
+        headers: {
+            'authorization' : `Bearer ${authToken}`
+        }
+    })
+    .then(response =>{
+        if(response.status === 401){
+            adminAuthStatus.style.color = 'red';
+            adminAuthStatus.textContent = 'Não Autorizado! Token Invalido'
+            return response.json().then(err => Promise.reject(err))
+        }
+        return respons.json();
+    })
+    .then(() => {
+        fetchAndRenderUsers()
+    })
+    .catch(error => console.error("Erro ao excluir usuário:", error.mensagem))
 }
 
 function renderUsers(users) {
