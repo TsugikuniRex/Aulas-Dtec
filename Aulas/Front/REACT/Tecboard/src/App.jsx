@@ -33,7 +33,7 @@ function App() {
       nome: 'cloud'
     }
   ]
-  const [eventos, setEventos] = useState( [
+  const [eventos, setEventos] = useState([
     {
       capa: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png',
       tema: temas[0],
@@ -54,21 +54,31 @@ function App() {
       </header>
       <Banner />
       <FormularioDeEventos temas={temas} aoSubmeter={adicionarEvento} />
-
-      {temas.map(function (item) {
-        return (
-          <section key={item.id} >
-            <Tema tema={item} />
+      <section className='container'>
+        {temas.map(function (tema) {
+          if (!eventos.some(function(evento){
+            return evento.tema.id == tema.id
+          })) {
+            return null
+          }
+          return (
+            <section key={tema.id} >
+              <Tema tema={tema} />
             
-            {eventos.map(function (item, index) {
-              return(
-            <CardEvento evento={item} key={index} />
-            )
-          })}
-          </section>
-        )
-      })}
-
+              <div className='eventos'>
+                {eventos.filter(function (evento){
+                  return evento.tema.id == tema.id
+                })
+                .map(function (evento, index) {
+                  return (
+                    <CardEvento evento={evento} key={index} />
+                  )
+                })}
+              </div>
+            </section>
+          )
+        })}
+      </section>
 
       {/* <section>
         <Tema tema={temas[1]} />
