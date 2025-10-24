@@ -30,7 +30,6 @@ const btnRegisterModal = document.getElementById('btnRegisterModal')
 const btnCancelRegister = document.getElementById('btnCancelRegister')
 const adminRegisterForm = document.getElementById('adminRegisterForm')
 const adminRegisterStatus = document.getElementById('adminRegisterStatus')
-const  = document.getElementById('')
 
 // variavel global para o tokken
 let authToken = '';
