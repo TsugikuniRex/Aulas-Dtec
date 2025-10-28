@@ -4,6 +4,7 @@ import { CardEvento } from "./assets/componentes/CardEvento";
 import { FormularioDeEventos } from './assets/componentes/FormularioDeEvento';
 import { Tema } from "./assets/componentes/Tema";
 import { useState } from 'react';
+// usar o comando "npm run dev" no terminal
 
 function App() {
 

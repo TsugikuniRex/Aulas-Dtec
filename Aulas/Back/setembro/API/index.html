@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Gerenciamento de Pessoas</h1>
-        <p>Clique em "Listar Pessoas" para carregar os dados</p>
+        <p>Clique em "Listar Pessoas" para carregar os dados da API.</p>
 
         <div class="header-buttons">
             <button id="btnListUsers" class="btn-action">Listar Pessoas</button>
@@ -19,17 +19,20 @@
             <button id="btnRegisterModal" class="btn-action">Criar Usuário</button>
 
             <p id="adminAuthStatus" class="auth-status"></p>
+
+        </div>
+        <div id="user-cards-container" class="cards-grid">
         </div>
 
-        <div id="user-cards-container" class="cards-grid"></div>
 
         <h2>Cadastrar Pessoa</h2>
         <form id="addUserForm" class="add-user-form">
-            <input type="text" id="addName" placeholder="Nome da Pessoa" required>
+            <input type="text" id="addName" placeholder="Nome" required>
             <input type="number" id="addAge" placeholder="Idade" required>
-            <button type="submit" class="btnAdcionar">Adicionar Pessoa</button>
+            <button type="submit">Adicionar Pessoa</button>
         </form>
     </div>
+
     <div id="editModal" class="modal">
         <div class="modal-content">
             <h2>Editar Pessoa</h2>
@@ -46,26 +49,28 @@
             </form>
         </div>
     </div>
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <h2>Login Administrador</h2>
             <form id="adminLoginForm">
                 <label for="adminUsername">Usuário</label>
-                <input type="text" id="adminUserName" required>
+                <input type="text" id="adminUsername" required>
                 <label for="adminPassword">Senha</label>
-                <input type="password" id="adminPassworld" required>
+                <input type="password" id="adminPassword" required>
 
                 <div class="modal-buttons">
                     <button class="btn-save" type="submit">Entrar</button>
-                    <button class="btn-cancel" type="button" id="CancelLogin">Cancelar</button>
+                    <button class="btn-cancel" type="button" id="btnCancelLogin">Cancelar</button>
                 </div>
-
             </form>
         </div>
     </div>
+
+
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <h2>Criação Login</h2>
+            <h2>Criar Conta</h2>
             <form id="adminRegisterForm">
                 <p id="adminRegisterStatus" class="auth-status"></p>
                 <label for="regUsername">Nome de Usuário:</label>
@@ -75,11 +80,14 @@
 
                 <div class="modal-buttons">
                     <button type="submit" class="btn-save">Registrar</button>
-                    <button type="button" class="btn-cancel" id="btnCancelRegister">Registrar</button>
+                    <button type="button" class="btn-cancel" id="btnCancelRegister">Cancelar</button>
                 </div>
             </form>
         </div>
     </div>
+
+
+
     <script src="script.js"></script>
 </body>
 
